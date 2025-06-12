@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 200" preserveAspectRatio="none">
+  <defs>
+    <!-- Gradiente para papel velho -->
+    <linearGradient id="oldPaperBase" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e8dab3;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#d4bc87;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#c8a882;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Sombra interna -->
+    <filter id="innerShadow">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="0" dy="2" result="offsetblur"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.5"/>
+      </feComponentTransfer>
+      <feMerge> 
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/> 
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Sombra do pergaminho -->
+  <path d="M 0,0 Q 10,2 20,0 T 40,0 T 60,0 T 80,0 T 100,0 T 120,0 T 140,0 T 160,0 T 180,0 T 200,0 T 300,0 T 400,0 T 500,0 T 600,0 T 700,0 T 800,0 T 900,0 T 1000,0 L 1000,150 Q 980,180 950,185 Q 920,190 880,175 Q 850,165 820,170 Q 780,180 750,165 Q 720,155 680,160 Q 640,170 600,155 Q 560,145 520,150 Q 480,160 440,145 Q 400,135 360,140 Q 320,150 280,135 Q 240,125 200,130 Q 160,140 120,125 Q 80,115 40,120 Q 20,130 0,150 Z" 
+        fill="rgba(0,0,0,0.3)" transform="translate(5, 5)" />
+  
+  <!-- Corpo principal da base -->
+  <path d="M 0,0 Q 10,2 20,0 T 40,0 T 60,0 T 80,0 T 100,0 T 120,0 T 140,0 T 160,0 T 180,0 T 200,0 T 300,0 T 400,0 T 500,0 T 600,0 T 700,0 T 800,0 T 900,0 T 1000,0 L 1000,150 Q 980,180 950,185 Q 920,190 880,175 Q 850,165 820,170 Q 780,180 750,165 Q 720,155 680,160 Q 640,170 600,155 Q 560,145 520,150 Q 480,160 440,145 Q 400,135 360,140 Q 320,150 280,135 Q 240,125 200,130 Q 160,140 120,125 Q 80,115 40,120 Q 20,130 0,150 Z" 
+        fill="url(#oldPaperBase)" 
+        filter="url(#innerShadow)" />
+  
+  <!-- Enrolamento inferior -->
+  <ellipse cx="500" cy="150" rx="480" ry="30" fill="#b8a068" opacity="0.3" />
+  <ellipse cx="500" cy="160" rx="450" ry="25" fill="#a08050" opacity="0.4" />
+  
+  <!-- Rasgos grandes na base -->
+  <path d="M 100,130 Q 110,125 120,135 T 140,130 T 160,140 T 180,135" 
+        fill="none" stroke="#8b6914" stroke-width="2" opacity="0.5" />
+  <path d="M 820,140 Q 830,135 840,145 T 860,140 T 880,150" 
+        fill="none" stroke="#8b6914" stroke-width="2" opacity="0.5" />
+  
+  <!-- Queimadura no canto inferior -->
+  <path d="M 0,150 Q 30,140 50,120 Q 60,110 70,115 Q 80,120 75,130 Q 70,140 40,120 Q 20,130 0,150" 
+        fill="#5c4a28" opacity="0.5" />
+  
+  <!-- Mancha de tinta -->
+  <ellipse cx="650" cy="80" rx="60" ry="30" fill="#4a3c28" opacity="0.2" transform="rotate(-15 650 80)" />
+  
+  <!-- Marca de copo/caneca -->
+  <circle cx="350" cy="60" r="35" fill="none" stroke="#c8a882" stroke-width="3" opacity="0.3" />
+  
+  <!-- Detalhes finais -->
+  <path d="M 200,0 L 200,100" stroke="#c8a882" stroke-width="1" opacity="0.3" />
+  <path d="M 800,0 L 800,100" stroke="#c8a882" stroke-width="1" opacity="0.3" />
+</svg>
