@@ -80,6 +80,40 @@ const featureObserver = new IntersectionObserver((entries) => {
     rootMargin: '-50px'
 });
 
+// Efeito de sangue ao scrollar para a seção
+const charactersSection = document.querySelector('.characters-section');
+const bloodObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('blood-visible');
+        }
+    });
+}, {
+    threshold: 0.3
+});
+
+if (charactersSection) {
+    bloodObserver.observe(charactersSection);
+}
+
+// Animar personagens ao aparecer
+const characterRows = document.querySelectorAll('.character-row');
+const characterObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+            setTimeout(() => {
+                entry.target.classList.add('visible');
+            }, index * 200);
+        }
+    });
+}, {
+    threshold: 0.2
+});
+
+characterRows.forEach(row => {
+    characterObserver.observe(row);
+});
+
 // Observar todas as feature rows
 document.querySelectorAll('.feature-row').forEach(row => {
     featureObserver.observe(row);
