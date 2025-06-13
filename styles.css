@@ -237,7 +237,7 @@ html {
 
 .pergaminho-container {
     position: relative;
-    max-width: 10000px;
+    max-width: 1000px;
     margin: 0 auto;
     filter: drop-shadow(0 20px 40px rgba(0,0,0,0.6));
 }
@@ -274,4 +274,250 @@ html {
 .section-title {
     color: #3a2a1a;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+/* Container para o texto de lore */
+.pergaminho-lore {
+    margin: 40px 0;
+    text-align: center;
+}
+
+/* Cada linha do texto */
+.lore-linha {
+    font-size: 1.3rem;
+    line-height: 1.6;
+    color: #3a2a1a;
+    margin-bottom: 30px;
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    opacity: 0;
+    animation: aparecer 1s ease-out forwards;
+}
+
+/* Pergunta final - destaque especial */
+.lore-pergunta {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #8b1a1a; /* Vermelho escuro */
+    margin-top: 50px;
+    margin-bottom: 30px;
+    font-family: 'Georgia', serif;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    opacity: 0;
+    animation: aparecer 1s ease-out 2s forwards;
+}
+
+/* Animação sequencial para cada linha */
+.lore-linha:nth-child(1) { animation-delay: 0.3s; }
+.lore-linha:nth-child(2) { animation-delay: 0.6s; }
+.lore-linha:nth-child(3) { animation-delay: 0.9s; }
+.lore-linha:nth-child(4) { animation-delay: 1.2s; }
+
+/* Animação de aparecimento */
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Versão alternativa com separadores */
+.lore-linha::after {
+    content: "";
+    display: block;
+    width: 100px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #8b6914, transparent);
+    margin: 20px auto 0;
+}
+
+/* Remove o separador da última linha antes da pergunta */
+.lore-linha:last-of-type::after {
+    display: none;
+}
+
+/* Seção de Features */
+.features-section {
+    padding: 80px 0;
+    background-color: #0a0a0a;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Container das features com largura máxima */
+.features-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Feature row mais compacta */
+.feature-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 80px;
+    gap: 40px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.feature-row.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.feature-row.reverse {
+    flex-direction: row-reverse;
+}
+
+/* Conteúdo de texto */
+.feature-content {
+    flex: 1;
+    position: relative;
+}
+
+.feature-text {
+    padding: 0;
+    background: none;
+    border: none;
+}
+
+/* Título da feature com estilo similar ao exemplo */
+.feature-titulo {
+    font-size: 2.5rem;
+    color: #ff4444; /* Vermelho similar ao exemplo */
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+    letter-spacing: 1px;
+}
+
+/* Descrição */
+.feature-descricao {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #e8dab3;
+    margin: 0;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Container da imagem menor e com borda */
+.feature-image {
+    flex: 0 0 500px; /* Largura fixa */
+    height: 300px; /* Altura fixa */
+    position: relative;
+    overflow: hidden;
+    border-radius: 0; /* Remove borda arredondada */
+    
+    /* Borda estilo moldura */
+    border: 20px solid transparent;
+    border-image: linear-gradient(
+        45deg,
+        #d4bc87 0%,
+        #f4e8d0 25%,
+        #d4bc87 50%,
+        #8b6914 75%,
+        #d4bc87 100%
+    );
+    border-image-slice: 1;
+    box-shadow: 
+        inset 0 0 20px rgba(0, 0, 0, 0.5),
+        0 10px 30px rgba(0, 0, 0, 0.7);
+}
+
+/* Efeito de moldura antiga */
+.feature-image::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background: 
+        linear-gradient(45deg, transparent 30%, rgba(139, 105, 20, 0.3) 50%, transparent 70%),
+        linear-gradient(-45deg, transparent 30%, rgba(139, 105, 20, 0.3) 50%, transparent 70%);
+    pointer-events: none;
+}
+
+/* Imagem */
+.feature-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Cantos decorativos na moldura */
+.feature-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 2px solid rgba(212, 188, 135, 0.3);
+    pointer-events: none;
+}
+
+/* Responsivo */
+@media (max-width: 968px) {
+    .feature-row,
+    .feature-row.reverse {
+        flex-direction: column;
+        gap: 30px;
+        margin-bottom: 60px;
+    }
+    
+    .feature-titulo {
+        font-size: 2rem;
+        text-align: center;
+    }
+    
+    .feature-descricao {
+        text-align: center;
+    }
+    
+    .feature-image {
+        flex: 0 0 auto;
+        width: 100%;
+        max-width: 500px;
+        height: 250px;
+        margin: 0 auto;
+    }
+}
+
+/* Alternativa: estilo ainda mais próximo ao exemplo */
+.feature-image.torn-edge {
+    border: none;
+    filter: drop-shadow(0 0 20px rgba(0, 0, 0, 0.8));
+    -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M0,5 Q10,0 20,5 T40,5 T60,5 T80,5 T100,5 L100,95 Q90,100 80,95 T60,95 T40,95 T20,95 T0,95 Z" fill="white"/></svg>');
+    mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M0,5 Q10,0 20,5 T40,5 T60,5 T80,5 T100,5 L100,95 Q90,100 80,95 T60,95 T40,95 T20,95 T0,95 Z" fill="white"/></svg>');
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+}
+
+/* Força a alternância - adicione isso ao seu CSS */
+.feature-row {
+    display: flex;
+    flex-direction: row; /* Padrão: texto à esquerda, imagem à direita */
+}
+
+.feature-row.reverse {
+    flex-direction: row-reverse !important; /* Inverte: imagem à esquerda, texto à direita */
+}
+
+/* Garante espaçamento adequado */
+.feature-row .feature-content {
+    padding-right: 40px;
+}
+
+.feature-row.reverse .feature-content {
+    padding-right: 0;
+    padding-left: 40px;
 }

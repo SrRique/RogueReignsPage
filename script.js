@@ -65,3 +65,22 @@ document.addEventListener('DOMContentLoaded', function() {
 window.addEventListener('beforeunload', function() {
     window.scrollTo(0, 0);
 });
+
+// Animação das features ao aparecer
+const featureObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+            setTimeout(() => {
+                entry.target.classList.add('visible');
+            }, index * 100);
+        }
+    });
+}, {
+    threshold: 0.2,
+    rootMargin: '-50px'
+});
+
+// Observar todas as feature rows
+document.querySelectorAll('.feature-row').forEach(row => {
+    featureObserver.observe(row);
+});
