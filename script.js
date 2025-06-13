@@ -118,3 +118,21 @@ characterRows.forEach(row => {
 document.querySelectorAll('.feature-row').forEach(row => {
     featureObserver.observe(row);
 });
+
+// Animar cards dos habitantes ao aparecer
+const inhabitantCards = document.querySelectorAll('.inhabitant-card');
+const inhabitantObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+            setTimeout(() => {
+                entry.target.classList.add('visible');
+            }, index * 150);
+        }
+    });
+}, {
+    threshold: 0.3
+});
+
+inhabitantCards.forEach(card => {
+    inhabitantObserver.observe(card);
+});
