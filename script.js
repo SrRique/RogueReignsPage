@@ -5,14 +5,14 @@ window.addEventListener('scroll', () => {
     const backgroundImage = document.querySelector('.background-image');
     
     // Parallax da logo
-    const parallax = scrolled * 0.5;
+    const parallax = scrolled * 2;
     const opacity = Math.max(0, 1 - scrolled / window.innerHeight);
     logo.style.opacity = opacity;
     logo.style.transform = `translate(-50%, calc(-50% + ${parallax}px))`;
     
     // Fade da imagem conforme scrolla
     const fadeStart = window.innerHeight * 0.3; // Começa a esmaecer em 30% da viewport
-    const fadeEnd = window.innerHeight * 1.2; // Termina em 120% da viewport
+    const fadeEnd = window.innerHeight * .8; // Termina em 120% da viewport
     
     if (scrolled <= fadeStart) {
         backgroundImage.style.opacity = '1';

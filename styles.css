@@ -162,7 +162,7 @@ body {
 .lore-linha {
     font-size: 1.3rem;
     line-height: 1.6;
-    color: #3a2a1a;
+    color: #fff8f0;
     margin-bottom: 30px;
     font-family: 'Georgia', serif;
     font-style: italic;
@@ -175,7 +175,7 @@ body {
 .lore-pergunta {
     font-size: 1.5rem;
     font-weight: bold;
-    color: #8b1a1a;
+    color: #da0000;
     margin-top: 50px;
     margin-bottom: 30px;
     font-family: 'Georgia', serif;
@@ -317,10 +317,7 @@ body {
     left: -10px;
     right: -10px;
     bottom: -10px;
-    background: 
-        linear-gradient(45deg, transparent 30%, rgba(139, 105, 20, 0.3) 50%, transparent 70%),
-        linear-gradient(-45deg, transparent 30%, rgba(139, 105, 20, 0.3) 50%, transparent 70%);
-    pointer-events: none;
+
 }
 
 /* Imagem */
@@ -875,8 +872,8 @@ body {
     }
     
     .inhabitant-image {
-        width: 200px;
-        height: 200px;
+        width: 400;
+        height: 400px;
     }
     
     .inhabitants-title {
