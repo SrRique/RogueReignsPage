@@ -12,7 +12,7 @@ window.addEventListener('scroll', () => {
     
     // Fade da imagem conforme scrolla
     const fadeStart = window.innerHeight * 0.3; // Começa a esmaecer em 30% da viewport
-    const fadeEnd = window.innerHeight * .8; // Termina em 120% da viewport
+    const fadeEnd = window.innerHeight * 1.2; // Termina em 120% da viewport
     
     if (scrolled <= fadeStart) {
         backgroundImage.style.opacity = '1';
@@ -23,7 +23,6 @@ window.addEventListener('scroll', () => {
         backgroundImage.style.opacity = 1 - fadeProgress;
     }
 });
-
 // Animação de entrada das feature cards
 const observerOptions = {
     threshold: 0.1,
