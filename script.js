@@ -5,7 +5,7 @@ window.addEventListener('scroll', () => {
     const backgroundImage = document.querySelector('.background-image');
     
     // Parallax da logo
-    const parallax = scrolled * 2;
+    const parallax = scrolled * 7;
     const opacity = Math.max(0, 1 - scrolled / window.innerHeight);
     logo.style.opacity = opacity;
     logo.style.transform = `translate(-50%, calc(-50% + ${parallax}px))`;
@@ -135,3 +135,4 @@ const inhabitantObserver = new IntersectionObserver((entries) => {
 inhabitantCards.forEach(card => {
     inhabitantObserver.observe(card);
 });
+
