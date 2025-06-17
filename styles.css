@@ -411,12 +411,66 @@ body {
 /* ===== SEÇÃO DE PERSONAGENS ===== */
 .characters-section {
     position: relative;
-    padding: 100px 0;
+    padding: 180px 0 100px 0; /* Mais padding no topo para a onda */
     background-color: #1a0000;
     overflow: hidden;
+    
 }
 
-/* Overlay de sangue animado */
+/* Onda de sangue no topo */
+.characters-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 150' preserveAspectRatio='none'%3E%3Cpath d='M0,0 L0,100 Q150,120 300,100 T600,100 Q750,110 900,100 T1200,100 L1200,0 Z' fill='%230a0a0a'/%3E%3Cpath d='M0,90 Q150,110 300,90 T600,90 Q750,100 900,90 T1200,90 L1200,150 L0,150 Z' fill='%23440000'/%3E%3Cpath d='M0,100 Q100,115 200,105 T400,105 Q500,112 600,105 T800,105 Q900,110 1000,105 T1200,105 L1200,150 L0,150 Z' fill='%231a0000'/%3E%3C/svg%3E");
+    background-size: 100% 100%;
+    z-index: 2;
+}
+
+/* Onda de sangue no final (invertida) */
+.characters-section::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 150' preserveAspectRatio='none'%3E%3Cpath d='M0,150 L0,50 Q150,30 300,50 T600,50 Q750,40 900,50 T1200,50 L1200,150 Z' fill='%230a0a0a'/%3E%3Cpath d='M0,60 Q150,40 300,60 T600,60 Q750,50 900,60 T1200,60 L1200,0 L0,0 Z' fill='%23440000'/%3E%3Cpath d='M0,50 Q100,35 200,45 T400,45 Q500,38 600,45 T800,45 Q900,40 1000,45 T1200,45 L1200,0 L0,0 Z' fill='%231a0000'/%3E%3C/svg%3E");
+    background-size: 100% 100%;
+    z-index: 2;
+}
+
+
+
+
+/* Gotas de sangue escorrendo */
+/*.characters-section::after {
+    content: '';
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    background-image: 
+        radial-gradient(ellipse at 20% 0%, #8b0000 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 0%, #660000 0%, transparent 40%),
+        radial-gradient(ellipse at 80% 0%, #8b0000 0%, transparent 45%);
+    background-size: 300px 200px;
+    background-repeat: repeat-x;
+    opacity: 0.3;
+    animation: bloodDrip 8s ease-in-out infinite;
+    z-index: 1;
+}
+
+@keyframes bloodDrip {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(30px); }
+}*/
+
+/* Overlay de sangue animado 
 .blood-overlay {
     position: absolute;
     top: 0;
@@ -429,14 +483,14 @@ body {
     opacity: 0;
     transition: opacity 2s ease-out;
     pointer-events: none;
-}
+} */
 
-/* Ativa o overlay quando a seção aparece */
+/* Ativa o overlay quando a seção aparece 
 .characters-section.blood-visible .blood-overlay {
     opacity: 0.6;
-}
+}*/
 
-/* Efeito de sangue escorrendo */
+/* Efeito de sangue escorrendo 
 .blood-overlay::before {
     content: '';
     position: absolute;
@@ -453,12 +507,13 @@ body {
         transparent 100%
     );
     animation: bloodDrip 15s ease-in-out infinite;
-}
+}*/
 
+/*
 @keyframes bloodDrip {
     0%, 100% { transform: translateY(-100%); }
     50% { transform: translateY(100%); }
-}
+}*/
 
 /* Título da seção */
 .characters-title {
@@ -473,7 +528,6 @@ body {
         0 0 20px rgba(255, 0, 0, 0.8),
         0 0 40px rgba(255, 0, 0, 0.5),
         2px 2px 4px #000;
-    animation: pulsate 2s ease-in-out infinite;
 }
 
 @keyframes pulsate {
@@ -490,6 +544,123 @@ body {
 }
 
 /* Container dos personagens */
+
+/* Seletor de Classes */
+.class-selector {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin: 50px 0;
+}
+
+.class-btn {
+    width: 80px;
+    height: 80px;
+    border: 3px solid #660000;
+    background: rgba(26, 0, 0, 0.8);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    padding: 10px;
+}
+
+.class-btn:hover {
+    border-color: #ff0000;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(255, 0, 0, 0.3);
+}
+
+.class-btn.active {
+    border-color: #ff0000;
+    background: rgba(139, 0, 0, 0.6);
+    box-shadow: 
+        0 0 30px rgba(255, 0, 0, 0.5),
+        inset 0 0 20px rgba(255, 0, 0, 0.3);
+}
+
+.class-btn img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: brightness(0.8);
+    transition: filter 0.3s ease;
+}
+
+.class-btn:hover img,
+.class-btn.active img {
+    filter: brightness(1.2) drop-shadow(0 0 10px rgba(255, 0, 0, 0.8));
+}
+
+/* Animação de pulso no botão ativo */
+.class-btn.active::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 0, 0, 0.3) 0%, transparent 70%);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(0.8); opacity: 0; }
+    50% { transform: scale(1.2); opacity: 1; }
+}
+
+/* Container dos personagens */
+.characters-container {
+    position: relative;
+    min-height: 500px;
+}
+
+/* Display dos personagens */
+.character-display {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(30px);
+    transition: all 0.5s ease;
+}
+
+.character-display.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Ajuste o character-row para centralizar */
+.character-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .class-selector {
+        gap: 20px;
+    }
+    
+    .class-btn {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .character-row {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+}
+
 .character-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -547,6 +718,7 @@ body {
     margin-bottom: 30px;
     font-family: 'Outfit', sans-serif;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    
 }
 
 /* Stats do personagem */
@@ -561,8 +733,9 @@ body {
     align-items: center;
     gap: 10px;
     padding: 10px 20px;
-    background: rgba(139, 0, 0, 0.3);
-    border: 1px solid rgba(255, 0, 0, 0.3);
+    box-shadow: 
+        0 0 50px rgba(255, 0, 0, 0.5),
+        inset 0 0 50px rgba(82, 0, 0, 0.5);
     border-radius: 25px;
     transition: all 0.3s ease;
 }
@@ -580,8 +753,10 @@ body {
 .stat-name {
     color: #fff;
     font-size: 0.9rem;
+    font-family: 'Outfit', sans-serif;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 1px;  
+    
 }
 
 /* Container da animação */
@@ -789,8 +964,8 @@ body {
 
 /* ===== SEÇÃO DE HABITANTES DO MUNDO ===== */
 .inhabitants-section {
-    padding: 100px 0;
-    background: linear-gradient(180deg, #0a0a0a 0%, #1a1410 50%, #0a0a0a 100%);
+    padding: 0px 0 200px 0;
+    background-color: #0A0A0A;
     position: relative;
     overflow: hidden;
 }
@@ -803,9 +978,6 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: 
-        radial-gradient(circle at 30% 50%, rgba(212, 188, 135, 0.05) 0%, transparent 50%),
-        radial-gradient(circle at 70% 50%, rgba(212, 188, 135, 0.05) 0%, transparent 50%);
     pointer-events: none;
 }
 
@@ -879,13 +1051,20 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    
     transition: transform 0.3s ease;
 }
 
-.inhabitant-card:hover .inhabitant-image img {
-    transform: scale(1.1);
+/* Ajustes individuais para Asteria */
+.inhabitant-card:nth-child(1) .inhabitant-image img {
+    transform: scale(2.5) translate(2px, 75px); /* Move 10px direita, 5px cima */
 }
+
+/* Ajustes individuais para Don Diego */
+.inhabitant-card:nth-child(2) .inhabitant-image img {
+    transform: scale(2.5) translate(30px, 25px); /* Move 5px esquerda, 10px baixo */
+}
+
+
 
 /* Moldura decorativa */
 .inhabitant-frame {

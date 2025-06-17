@@ -159,93 +159,113 @@
         </div>
     </section>
 
-    <!-- Seção de Personagens -->
-    <section class="characters-section">
+   <!-- Seção de Personagens -->
+<section class="characters-section">
     <div class="blood-overlay"></div>
     <div class="container">
         <h2 class="characters-title">Choose Your Hero</h2>
         
-        <!-- The Wizard - Animação à direita -->
-        <div class="character-row">
-            <div class="character-content">
-                <h3 class="character-name">The Wizard</h3>
-                <p class="character-description">
-                    A learned sage who harnesses the raw power of elements and arcane energies, specializing in long-range devastation and battlefield-controlling magic.
-                </p>
-                <div class="character-stats">
-                    <div class="stat">
-                        <span class="stat-icon">🔥</span>
-                        <span class="stat-name">Magic Power</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-icon">⚡</span>
-                        <span class="stat-name">Range Combat</span>
-                    </div>
-                </div>
-            </div>
-            <div class="character-animation">
-                <video autoplay loop muted playsinline>
-                    <source src="./Assets/wizard-idle.webm" type="video/webm">
-                    <source src="./Assets/wizard-idle.mp4" type="video/mp4">
-                </video>
-            </div>
+        <!-- Seletor de Classes -->
+        <div class="class-selector">
+            <button class="class-btn active" data-class="wizard">
+                <img src="./Assets/wizard-icon.svg" alt="Wizard">
+            </button>
+            <button class="class-btn" data-class="rogue">
+                <img src="./Assets/rogue-icon.svg" alt="Rogue">
+            </button>
+            <button class="class-btn" data-class="paladin">
+                <img src="./Assets/paladin-icon.svg" alt="Paladin">
+            </button>
         </div>
         
-        <!-- The Rogue - Animação à esquerda -->
-        <div class="character-row reverse">
-            <div class="character-animation">
-                <video autoplay loop muted playsinline>
-                    <source src="./Assets/rogue-idle.webm" type="video/webm">
-                    <source src="./Assets/rogue-idle.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="character-content">
-                <h3 class="character-name">The Rogue</h3>
-                <p class="character-description">
-                    A master of evasion, stealth strikes, trickery, and agility. Armed with daggers and bow, this character uses cunning decoys to outsmart enemies and vanish without a trace.
-                </p>
-                <div class="character-stats">
-                    <div class="stat">
-                        <span class="stat-icon">🗡️</span>
-                        <span class="stat-name">Stealth & Speed</span>
+        <!-- Container dos Personagens -->
+        <div class="characters-container">
+            <!-- The Wizard -->
+            <div class="character-display active" id="wizard">
+                <div class="character-row">
+                    <div class="character-content">
+                        <h3 class="character-name">The Wizard</h3>
+                        <p class="character-description">
+                            A learned sage who harnesses the raw power of elements and arcane energies, specializing in long-range devastation and battlefield-controlling magic.
+                        </p>
+                        <div class="character-stats">
+                            <div class="stat">
+                                <span class="stat-icon">🔥</span>
+                                <span class="stat-name">Magic Power</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-icon">⚡</span>
+                                <span class="stat-name">Range Combat</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="stat">
-                        <span class="stat-icon">🎯</span>
-                        <span class="stat-name">Critical Strikes</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- The Paladin - Animação à direita -->
-        <div class="character-row">
-            <div class="character-content">
-                <h3 class="character-name">The Paladin</h3>
-                <p class="character-description">
-                    Sacred guardian who channels divine favor in battle, excelling at strengthening allies and healing the wounded.
-                </p>
-                <div class="character-stats">
-                    <div class="stat">
-                        <span class="stat-icon">🛡️</span>
-                        <span class="stat-name">Divine Protection</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-icon">✨</span>
-                        <span class="stat-name">Healing Power</span>
+                    <div class="character-animation">
+                        <video autoplay loop muted playsinline>
+                            <source src="./Assets/wizard-idle.webm" type="video/webm">
+                            <source src="./Assets/wizard-idle.mp4" type="video/mp4">
+                        </video>
                     </div>
                 </div>
             </div>
-            <div class="character-animation">
-                <video autoplay loop muted playsinline>
-                    <source src="./Assets/paladin-idle.webm" type="video/webm">
-                    <source src="./Assets/paladin-idle.mp4" type="video/mp4">
-                </video>
+            
+            <!-- The Rogue -->
+            <div class="character-display" id="rogue">
+                <div class="character-row">
+                    <div class="character-content">
+                        <h3 class="character-name">The Rogue</h3>
+                        <p class="character-description">
+                            A master of evasion, stealth strikes, trickery, and agility. Armed with daggers and bow, this character uses cunning decoys to outsmart enemies and vanish without a trace.
+                        </p>
+                        <div class="character-stats">
+                            <div class="stat">
+                                <span class="stat-icon">🗡️</span>
+                                <span class="stat-name">Stealth & Speed</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-icon">🎯</span>
+                                <span class="stat-name">Critical Strikes</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="character-animation">
+                        <video autoplay loop muted playsinline>
+                            <source src="./Assets/rogue-idle.webm" type="video/webm">
+                            <source src="./Assets/rogue-idle.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- The Paladin -->
+            <div class="character-display" id="paladin">
+                <div class="character-row">
+                    <div class="character-content">
+                        <h3 class="character-name">The Paladin</h3>
+                        <p class="character-description">
+                            Sacred guardian who channels divine favor in battle, excelling at strengthening allies and healing the wounded.
+                        </p>
+                        <div class="character-stats">
+                            <div class="stat">
+                                <span class="stat-icon">🛡️</span>
+                                <span class="stat-name">Divine Protection</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-icon">✨</span>
+                                <span class="stat-name">Healing Power</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="character-animation">
+                        <video autoplay loop muted playsinline>
+                            <source src="./Assets/paladin-idle.webm" type="video/webm">
+                            <source src="./Assets/paladin-idle.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    
-
-    </section>
+</section>
 
     <!-- Seção de Habitantes do Mundo -->
     <section class="inhabitants-section">

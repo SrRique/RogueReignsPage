@@ -136,3 +136,37 @@ inhabitantCards.forEach(card => {
     inhabitantObserver.observe(card);
 });
 
+// Sistema de seleção de personagens
+document.addEventListener('DOMContentLoaded', function() {
+    const classButtons = document.querySelectorAll('.class-btn');
+    const characterDisplays = document.querySelectorAll('.character-display');
+    
+    classButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const selectedClass = this.dataset.class;
+            
+            // Remove active de todos os botões
+            classButtons.forEach(btn => btn.classList.remove('active'));
+            // Adiciona active no botão clicado
+            this.classList.add('active');
+            
+            // Esconde todos os personagens
+            characterDisplays.forEach(display => {
+                display.classList.remove('active');
+            });
+            
+            // Mostra o personagem selecionado
+            const selectedCharacter = document.getElementById(selectedClass);
+            if (selectedCharacter) {
+                selectedCharacter.classList.add('active');
+                
+                // Reinicia o vídeo do personagem selecionado
+                const video = selectedCharacter.querySelector('video');
+                if (video) {
+                    video.currentTime = 0;
+                    video.play();
+                }
+            }
+        });
+    });
+});
