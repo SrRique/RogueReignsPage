@@ -445,7 +445,6 @@ body {
 
 
 
-
 /* Gotas de sangue escorrendo */
 /*.characters-section::after {
     content: '';
@@ -1061,6 +1060,14 @@ body {
 
 /* Ajustes individuais para Don Diego */
 .inhabitant-card:nth-child(2) .inhabitant-image img {
+    transform: scale(2.5) translate(30px, 25px); /* Move 5px esquerda, 10px baixo */
+}
+
+.inhabitant-card:nth-child(3) .inhabitant-image img {
+    transform: scale(2.5) translate(30px, 25px); /* Move 5px esquerda, 10px baixo */
+}
+
+.inhabitant-card:nth-child(4) .inhabitant-image img {
     transform: scale(2.5) translate(30px, 25px); /* Move 5px esquerda, 10px baixo */
 }
 
