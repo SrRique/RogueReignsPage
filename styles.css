@@ -444,7 +444,10 @@ body {
 }
 
 
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 /* Gotas de sangue escorrendo */
 /*.characters-section::after {
     content: '';
@@ -811,6 +814,17 @@ body {
     position: relative;
     transform: scaleX(-1);
     z-index: 1;
+    
+}
+
+.character-animation img {
+    width: 90%;
+    height: 90%;
+    object-fit: contain;
+    position: relative;
+    transform: scaleX(-1);
+    z-index: 1;
+    filter: brightness(0%); 
     
 }
 
