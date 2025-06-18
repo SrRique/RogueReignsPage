@@ -1097,6 +1097,14 @@ body {
     transform: scale(2.5) translate(0px, 75px); /* Move 5px esquerda, 10px baixo */
 }
 
+.inhabitant-card:nth-child(5) .inhabitant-image img {
+    transform: scale(2.8) translate(12px, 75px); /* Move 5px esquerda, 10px baixo */
+}
+
+.inhabitant-card:nth-child(6) .inhabitant-image img {
+    transform: scale(2.8) translate(7px, 85px); /* Move 5px esquerda, 10px baixo */
+}
+
 
 
 /* Moldura decorativa */
