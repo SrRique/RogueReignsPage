@@ -171,24 +171,36 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Controle de música
+// Controle de música com troca de imagem
 document.addEventListener('DOMContentLoaded', function() {
     const music = document.getElementById('background-music');
     const musicBtn = document.getElementById('music-btn');
+    const musicIcon = musicBtn.querySelector('.music-icon');
     let isPlaying = false;
+    
+    // Função para trocar ícone
+    function updateIcon(playing) {
+        if (playing) {
+            musicIcon.src = './Assets/sound_on.png';
+            musicIcon.alt = 'Som ligado';
+        } else {
+            musicIcon.src = './Assets/sound_off.png';
+            musicIcon.alt = 'Som desligado';
+        }
+    }
     
     // Função para tocar/pausar
     function toggleMusic() {
         if (isPlaying) {
             music.pause();
-            musicBtn.textContent = '🔇';
             musicBtn.classList.add('muted');
+            updateIcon(false);
         } else {
             music.play().catch(e => {
                 console.log('Erro ao tocar:', e);
             });
-            musicBtn.textContent = '🔊';
             musicBtn.classList.remove('muted');
+            updateIcon(true);
         }
         isPlaying = !isPlaying;
     }
@@ -196,12 +208,19 @@ document.addEventListener('DOMContentLoaded', function() {
     // Click no botão
     musicBtn.addEventListener('click', toggleMusic);
     
-    // Tentar tocar automaticamente (pode ser bloqueado pelo navegador)
-    music.volume = 0.2; // Volume em 30%
+    // Configuração inicial
+    music.volume = 0.3; // Volume em 30%
+    
+    // Tentar tocar automaticamente
     music.play().then(() => {
         isPlaying = true;
+        updateIcon(true);
     }).catch(() => {
-        // Se bloqueado, espera interação do usuário
+        // Se bloqueado, mostra ícone de mudo
+        updateIcon(false);
+        musicBtn.classList.add('muted');
+        
+        // Espera primeira interação
         document.addEventListener('click', function startMusic() {
             if (!isPlaying) {
                 toggleMusic();
