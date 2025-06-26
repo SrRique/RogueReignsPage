@@ -170,3 +170,43 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+// Controle de música
+document.addEventListener('DOMContentLoaded', function() {
+    const music = document.getElementById('background-music');
+    const musicBtn = document.getElementById('music-btn');
+    let isPlaying = false;
+    
+    // Função para tocar/pausar
+    function toggleMusic() {
+        if (isPlaying) {
+            music.pause();
+            musicBtn.textContent = '🔇';
+            musicBtn.classList.add('muted');
+        } else {
+            music.play().catch(e => {
+                console.log('Erro ao tocar:', e);
+            });
+            musicBtn.textContent = '🔊';
+            musicBtn.classList.remove('muted');
+        }
+        isPlaying = !isPlaying;
+    }
+    
+    // Click no botão
+    musicBtn.addEventListener('click', toggleMusic);
+    
+    // Tentar tocar automaticamente (pode ser bloqueado pelo navegador)
+    music.volume = 0.2; // Volume em 30%
+    music.play().then(() => {
+        isPlaying = true;
+    }).catch(() => {
+        // Se bloqueado, espera interação do usuário
+        document.addEventListener('click', function startMusic() {
+            if (!isPlaying) {
+                toggleMusic();
+                document.removeEventListener('click', startMusic);
+            }
+        }, { once: true });
+    });
+});

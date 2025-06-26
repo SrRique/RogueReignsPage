@@ -639,12 +639,12 @@ body {
 
 /* Ajuste o character-row para centralizar */
 .character-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: center;
-    max-width: 1000px;
-    margin: 0 auto;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 60px !important;
+    align-items: center !important;
+    max-width: 1000px !important;
+    margin: 0 auto !important;
 }
 
 /* Responsivo */
@@ -1113,14 +1113,7 @@ body {
     inset: -5px;
     border-radius: 50%;
     border: 3px solid transparent;
-    background: linear-gradient(45deg, #d4bc87, #8b6914, #d4bc87, #f4e8d0);
-    background-size: 200% 200%;
-    animation: rotateGradient 4s linear infinite;
-    -webkit-mask: 
-        linear-gradient(#fff 0 0) padding-box, 
-        linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
+    background-size: 200% 200% !important; 
 }
 
 @keyframes rotateGradient {
@@ -1201,4 +1194,31 @@ body {
 /* Efeito de scroll suave */
 html {
     scroll-behavior: smooth;
+}
+
+/* Botão de música */
+.music-toggle {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid #d4bc87;
+    color: #d4bc87;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.music-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(212, 188, 135, 0.5);
+}
+
+.music-toggle.muted {
+    color: #666;
+    border-color: #666;
 }
