@@ -171,13 +171,11 @@ body {
 }
 
 .section-title {
-    font-size: 4.2rem;
+    font-size: 4.2rem !important;
     color: #3a2a1a;
     text-align: center;
-    margin-bottom: 30px;
-
+    margin-bottom: 30px !important;
     font-family: 'Domestic', serif;
-
 }
 
 .pergaminho-lore {
@@ -186,19 +184,19 @@ body {
 }
 
 .lore-linha {
-    font-size: 2.3rem;
-    line-height: 1;
+    font-size: 2.3rem !important;
+    line-height: 1 !important;
     color: #3a2a1a; /* Cor escura para contraste */
-    margin-bottom: 20px;
+    margin-bottom: 20px !important;
     font-family: 'Domestic', serif;
     font-style: italic;
 }
 
 .lore-pergunta {
-    font-size: 2.8rem;
+    font-size: 2.8rem !important;
     font-weight: bold;
     color: #8b1a1a;
-    margin-top: 30px;
+    margin-top: 30px !important;
     margin-bottom: 10px;
     font-family: 'EndLab', sans-serif;
 }
@@ -219,11 +217,6 @@ body {
         opacity: 1;
         transform: translateY(0);
     }
-}
-
-
-.lore-linha:last-of-type::after {
-    display: none;
 }
 
 /* ===== SEÇÃO DE FEATURES ===== */
@@ -412,6 +405,7 @@ body {
 .characters-section {
     position: relative;
     padding: 180px 0 100px 0; /* Mais padding no topo para a onda */
+    padding-bottom: 50px;
     background-color: #1a0000;
     overflow: hidden;
     
@@ -427,92 +421,13 @@ body {
     height: 150px;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 150' preserveAspectRatio='none'%3E%3Cpath d='M0,0 L0,100 Q150,120 300,100 T600,100 Q750,110 900,100 T1200,100 L1200,0 Z' fill='%230a0a0a'/%3E%3Cpath d='M0,90 Q150,110 300,90 T600,90 Q750,100 900,90 T1200,90 L1200,150 L0,150 Z' fill='%23440000'/%3E%3Cpath d='M0,100 Q100,115 200,105 T400,105 Q500,112 600,105 T800,105 Q900,110 1000,105 T1200,105 L1200,150 L0,150 Z' fill='%231a0000'/%3E%3C/svg%3E");
     background-size: 100% 100%;
-    z-index: 2;
+    z-index: 2 !important;
 }
 
 /* Onda de sangue no final (invertida) */
 .characters-section::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 150px;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 150' preserveAspectRatio='none'%3E%3Cpath d='M0,150 L0,50 Q150,30 300,50 T600,50 Q750,40 900,50 T1200,50 L1200,150 Z' fill='%230a0a0a'/%3E%3Cpath d='M0,60 Q150,40 300,60 T600,60 Q750,50 900,60 T1200,60 L1200,0 L0,0 Z' fill='%23440000'/%3E%3Cpath d='M0,50 Q100,35 200,45 T400,45 Q500,38 600,45 T800,45 Q900,40 1000,45 T1200,45 L1200,0 L0,0 Z' fill='%231a0000'/%3E%3C/svg%3E");
-    background-size: 100% 100%;
-    z-index: 2;
+ display: none;
 }
-
-
-
-/* Gotas de sangue escorrendo */
-/*.characters-section::after {
-    content: '';
-    position: absolute;
-    top: 50px;
-    left: 0;
-    width: 100%;
-    height: 200px;
-    background-image: 
-        radial-gradient(ellipse at 20% 0%, #8b0000 0%, transparent 50%),
-        radial-gradient(ellipse at 50% 0%, #660000 0%, transparent 40%),
-        radial-gradient(ellipse at 80% 0%, #8b0000 0%, transparent 45%);
-    background-size: 300px 200px;
-    background-repeat: repeat-x;
-    opacity: 0.3;
-    animation: bloodDrip 8s ease-in-out infinite;
-    z-index: 1;
-}
-
-@keyframes bloodDrip {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(30px); }
-}*/
-
-/* Overlay de sangue animado 
-.blood-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: 
-        radial-gradient(ellipse at top, transparent 0%, #8b0000 100%),
-        radial-gradient(ellipse at bottom, #1a0000 0%, transparent 100%);
-    opacity: 0;
-    transition: opacity 2s ease-out;
-    pointer-events: none;
-} */
-
-/* Ativa o overlay quando a seção aparece 
-.characters-section.blood-visible .blood-overlay {
-    opacity: 0.6;
-}*/
-
-/* Efeito de sangue escorrendo 
-.blood-overlay::before {
-    content: '';
-    position: absolute;
-    top: -100%;
-    left: 0;
-    right: 0;
-    height: 100%;
-    background: linear-gradient(
-        180deg,
-        transparent 0%,
-        #8b0000 20%,
-        #660000 50%,
-        #330000 80%,
-        transparent 100%
-    );
-    animation: bloodDrip 15s ease-in-out infinite;
-}*/
-
-/*
-@keyframes bloodDrip {
-    0%, 100% { transform: translateY(-100%); }
-    50% { transform: translateY(100%); }
-}*/
 
 /* Título da seção */
 .characters-title {
@@ -697,7 +612,7 @@ body {
 .character-name {
     font-size: 4.5rem;
     color: #fff;
-    margin-bottom: 20px;
+    margin-bottom: 20px !important;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
     font-family: 'EndLab', sans-serif;
     position: relative;
@@ -738,7 +653,7 @@ body {
     padding: 10px 20px;
     box-shadow: 
         0 0 50px rgba(255, 0, 0, 0.5),
-        inset 0 0 50px rgba(82, 0, 0, 0.5);
+        inset 0 0 50px rgba(82, 0, 0, 0.5) !important;
     border-radius: 25px;
     transition: all 0.3s ease;
 }
@@ -749,9 +664,21 @@ body {
     transform: translateY(-2px);
 }
 
-.stat-icon {
-    font-size: 1.5rem;
+.stat-icon-svg {
+    width: 24px;  /* Ajuste o tamanho conforme necessário */
+    height: 24px;
+    object-fit: contain;
+    filter: brightness(1.2) drop-shadow(0 0 5px rgba(255, 0, 0, 0.3));
+    transition: all 0.3s ease;
 }
+
+/* Efeito hover no SVG */
+.stat:hover .stat-icon-svg {
+    transform: scale(1.2);
+    filter: brightness(1.5) drop-shadow(0 0 10px rgba(255, 0, 0, 0.6));
+}
+
+
 
 .stat-name {
     color: #fff;
@@ -989,21 +916,82 @@ body {
 
 /* ===== SEÇÃO DE HABITANTES DO MUNDO ===== */
 .inhabitants-section {
-    padding: 0px 0 200px 0;
+    padding: 250px 0 200px 0;
     background-color: #0A0A0A;
     position: relative;
     overflow: hidden;
 }
 
-/* Padrão decorativo de fundo sutil */
 .inhabitants-section::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
+    width: 100%;
+    height: 250px;
+    background: linear-gradient(
+        to bottom,
+        #1a0000 0%,      /* Vermelho escuro */
+        rgba(26, 0, 0, 0.8) 30%,
+        rgba(26, 0, 0, 0.5) 50%,
+        rgba(26, 0, 0, 0.2) 70%,
+        transparent 100%  /* Totalmente transparente */
+    );
+    z-index: 2;
     pointer-events: none;
+}
+
+/* Camada de background dedicada */
+.inhabitants-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    
+    /* Imagem de fundo */
+    background-image: url('./Assets/safe_area.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    /* Opcional: efeito parallax */
+    background-attachment: fixed;
+}
+
+/* Overlay escuro para melhor legibilidade */
+.inhabitants-background::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 10, 10, 0.85); /* Ajuste a opacidade conforme necessário */
+}
+
+/* Garante que o conteúdo fique acima do background */
+.inhabitants-section .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Se quiser um efeito de vinheta */
+.inhabitants-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+        ellipse at center,
+        transparent 0%,
+        rgba(0, 0, 0, 0.3) 70%,
+        rgba(0, 0, 0, 0.6) 100%
+    );
+    z-index: 1;
 }
 
 .inhabitants-section .container {
@@ -1079,33 +1067,36 @@ body {
     transition: transform 0.3s ease;
 }
 
-/* Ajustes individuais para Asteria */
-.inhabitant-card:nth-child(1) .inhabitant-image img {
-    transform: scale(2.5) translate(2px, 75px); /* Move 10px direita, 5px cima */
+
+/* Habitante 1 */
+.inhabitant-1 .inhabitant-image img {
+    transform: scale(2.5) translate(2px, 75px) !important;
 }
 
-/* Ajustes individuais para Don Diego */
-.inhabitant-card:nth-child(2) .inhabitant-image img {
-    transform: scale(2.5) translate(30px, 25px); /* Move 5px esquerda, 10px baixo */
+/* Habitante 2 */
+.inhabitant-2 .inhabitant-image img {
+    transform: scale(2.5) translate(30px, 25px) !important;
 }
 
-.inhabitant-card:nth-child(3) .inhabitant-image img {
-    transform: scale(2.5) translate(15px, 75px); /* Move 5px esquerda, 10px baixo */
+/* Habitante 3 */
+.inhabitant-3 .inhabitant-image img {
+    transform: scale(2.5) translate(15px, 75px) !important;
 }
 
-.inhabitant-card:nth-child(4) .inhabitant-image img {
-    transform: scale(2.5) translate(0px, 75px); /* Move 5px esquerda, 10px baixo */
+/* Habitante 4 */
+.inhabitant-4 .inhabitant-image img {
+    transform: scale(2.5) translate(0px, 75px) !important;
 }
 
-.inhabitant-card:nth-child(5) .inhabitant-image img {
-    transform: scale(2.8) translate(12px, 75px); /* Move 5px esquerda, 10px baixo */
+/* Habitante 5 */
+.inhabitant-5 .inhabitant-image img {
+    transform: scale(2.8) translate(12px, 75px) !important;
 }
 
-.inhabitant-card:nth-child(6) .inhabitant-image img {
-    transform: scale(2.8) translate(7px, 85px); /* Move 5px esquerda, 10px baixo */
+/* Habitante 6 */
+.inhabitant-6 .inhabitant-image img {
+    transform: scale(2.8) translate(7px, 85px) !important;
 }
-
-
 
 /* Moldura decorativa */
 .inhabitant-frame {
