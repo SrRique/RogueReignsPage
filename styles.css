@@ -170,6 +170,7 @@ body {
     z-index: 3;
 }
 
+/* [IMPORTANTE] Precisa ser exatamente esses parametros */
 .section-title {
     font-size: 4.2rem !important;
     color: #3a2a1a;
@@ -183,6 +184,7 @@ body {
     text-align: center;
 }
 
+/* [IMPORTANTE] Precisa ser exatamente esses parametros, não possui ::after (no site ele ta com ::after) */
 .lore-linha {
     font-size: 2.3rem !important;
     line-height: 1 !important;
@@ -192,6 +194,7 @@ body {
     font-style: italic;
 }
 
+/* [IMPORTANTE] Precisa ser exatamente esses parametros*/
 .lore-pergunta {
     font-size: 2.8rem !important;
     font-weight: bold;
@@ -411,7 +414,7 @@ body {
     
 }
 
-/* Onda de sangue no topo */
+/* [IMPORTANTE] Onda de sangue no topo */ 
 .characters-section::before {
     content: '';
     position: absolute;
@@ -423,11 +426,8 @@ body {
     background-size: 100% 100%;
     z-index: 2 !important;
 }
+/* [IMPORTANTE] não tem onda de sangue em baixo */ 
 
-/* Onda de sangue no final (invertida) */
-.characters-section::after {
- display: none;
-}
 
 /* Título da seção */
 .characters-title {
@@ -646,6 +646,7 @@ body {
     margin-top: 20px;
 }
 
+/* [IMPORTANTE] Só o box shadows, sem background e border*/
 .stat {
     display: flex;
     align-items: center;
@@ -664,6 +665,7 @@ body {
     transform: translateY(-2px);
 }
 
+/* [IMPORTANTE] SVG Dos status */ 
 .stat-icon-svg {
     width: 24px;  /* Ajuste o tamanho conforme necessário */
     height: 24px;
@@ -922,6 +924,7 @@ body {
     overflow: hidden;
 }
 
+/* [IMPORTANTE] degrade transparente de transição de bloco  */
 .inhabitants-section::before {
     content: '';
     position: absolute;
@@ -941,7 +944,7 @@ body {
     pointer-events: none;
 }
 
-/* Camada de background dedicada */
+/* [IMPORTANTE] Camada de background que o Rafa fez */
 .inhabitants-background {
     position: absolute;
     top: 0;
@@ -960,7 +963,7 @@ body {
     background-attachment: fixed;
 }
 
-/* Overlay escuro para melhor legibilidade */
+/* [IMPORTANTE] Overlay escuro para melhor legibilidade */
 .inhabitants-background::after {
     content: '';
     position: absolute;
@@ -971,7 +974,7 @@ body {
     background: rgba(10, 10, 10, 0.85); /* Ajuste a opacidade conforme necessário */
 }
 
-/* Garante que o conteúdo fique acima do background */
+/* [IMPORTANTE]Garante que o conteúdo fique acima do background */
 .inhabitants-section .container {
     position: relative;
     z-index: 1;
@@ -1059,7 +1062,7 @@ body {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
-/* Imagem do habitante */
+/*[IMPORTANTE] Imagem do habitante */
 .inhabitant-image img {
     width: 100%;
     height: 100%;
@@ -1067,33 +1070,34 @@ body {
     transition: transform 0.3s ease;
 }
 
+/*[IMPORTANTE] Arruma a foto dos personagens */
 
-/* Habitante 1 */
+/*[IMPORTANTE] Habitante 1 */
 .inhabitant-1 .inhabitant-image img {
     transform: scale(2.5) translate(2px, 75px) !important;
 }
 
-/* Habitante 2 */
+/*[IMPORTANTE] Habitante 2 */
 .inhabitant-2 .inhabitant-image img {
     transform: scale(2.5) translate(30px, 25px) !important;
 }
 
-/* Habitante 3 */
+/*[IMPORTANTE] Habitante 3 */
 .inhabitant-3 .inhabitant-image img {
     transform: scale(2.5) translate(15px, 75px) !important;
 }
 
-/* Habitante 4 */
+/*[IMPORTANTE] Habitante 4 */
 .inhabitant-4 .inhabitant-image img {
     transform: scale(2.5) translate(0px, 75px) !important;
 }
 
-/* Habitante 5 */
+/*[IMPORTANTE] Habitante 5 */
 .inhabitant-5 .inhabitant-image img {
     transform: scale(2.8) translate(12px, 75px) !important;
 }
 
-/* Habitante 6 */
+/*[IMPORTANTE] Habitante 6 */
 .inhabitant-6 .inhabitant-image img {
     transform: scale(2.8) translate(7px, 85px) !important;
 }
